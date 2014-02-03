@@ -7,3 +7,4 @@ git reset --hard <tag na commit> // resetvash klona kym opredelen komit
 git merge // sliva kloni
 git commit -m "suobshtenie" // komitvash promeni
 git push // pushvash promenite
+git push -u origin <ime na branch>// push nov branch
