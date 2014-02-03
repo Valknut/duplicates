@@ -1,0 +1,9 @@
+git pull // durpash posledna versiq
+git status // proverqvash za untracknati failove
+git add --all // trackvash vs failove
+git branch <ime na klon> // suzdavash nov klon
+git checkout <ime na klon> // preminavash v klona
+git reset --hard <tag na commit> // resetvash klona kym opredelen komit
+git merge // sliva kloni
+git commit -m "suobshtenie" // komitvash promeni
+git push // pushvash promenite
