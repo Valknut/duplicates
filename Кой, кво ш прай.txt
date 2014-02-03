@@ -1,5 +1,5 @@
 Levski:
-1
+1 MOSHT
 2
 3..
 Beroe:
