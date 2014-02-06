@@ -203,3 +203,4 @@ $RECYCLE.BIN/
 *.exe
 *.out
 *.app
+Scanner.vcxproj.filters
