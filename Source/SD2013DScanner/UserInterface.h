@@ -1,4 +1,6 @@
 #pragma once
+#include "TreeScanner.h"
+
 class UserInterface
 {
 public:

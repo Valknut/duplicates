@@ -204,3 +204,4 @@ $RECYCLE.BIN/
 *.out
 *.app
 Scanner.vcxproj.filters
+*.sln
