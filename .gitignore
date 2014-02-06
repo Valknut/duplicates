@@ -23,7 +23,7 @@ bld/
 #NUNIT
 *.VisualState.xml
 TestResult.xml
-
+*.vcxproj
 *_i.c
 *_p.c
 *_i.h
