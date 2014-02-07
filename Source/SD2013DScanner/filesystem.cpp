@@ -23,9 +23,14 @@ string ReadFileContents(const string& filename) {
   return content;
 }
 
-size_t FileSizeInBytes(const string& filename) {
-  
-  return ReadFileContents(filename).size();
+size_t FileSizeInBytes(const string& filename) 
+{
+	size_t size=0;
+    ifstream is (filename, ios::binary|ios::ate);
+	if (is)
+		size= is.tellg();
+	is.close();
+	return size;  
 }
 
 vector<string> GetFilesAndDirectoriesFlat(const string& directory) {
