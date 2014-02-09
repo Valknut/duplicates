@@ -11,18 +11,6 @@ bool IsDirectory(const string& path) {
 }
 
 
-string ReadFileContents(const string& filename) {
-  ifstream stream(filename.c_str(), std::ifstream::binary);
-  string content;
-  char buf[BUFFER_SIZE];
-  while (!stream.fail() && !stream.eof()) {
-    stream.read(buf, BUFFER_SIZE);
-    content += string(buf, stream.gcount());
-  }
-  stream.close();
-  return content;
-}
-
 size_t FileSizeInBytes(const string& filename) 
 {
 	size_t size=0;

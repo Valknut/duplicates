@@ -4,6 +4,7 @@
 #include "filesystem.h"
 #include "utils.h"
 
+#include <iomanip>
 #include <iostream>
 #include <map>
 #include <string>
@@ -31,17 +32,58 @@ int main(int argc, char* argv[]) {
   map<string, vector<string> > classes;
   GroupIntoEquivalenceClasses(base_directory, classes);
 
+  cout<<fixed<<setprecision(2);
+
+  bool areThereDuplicates=false;
   int class_cnt = 0;
   for (map<string, vector<string> >::iterator it = classes.begin();
        it != classes.end();
-       it++) {
-    cout << "Equivalence class #" << (++class_cnt) << endl;
+       it++) 
+  {
     vector<string>& filenames = it->second;
-    for (int i = 0; i < filenames.size(); i++) {
-      size_t bytes = FileSizeInBytes(filenames[i]);
-      cout << filenames[i] << endl;
-    }
-    cout << endl;
+	size_t filesCntInGroup=filenames.size();
+
+	if(filesCntInGroup>1)
+	{
+		areThereDuplicates=true;
+		double fileSize = FileSizeInBytes(filenames[0]);
+		cout << "Duplicate group #" << (++class_cnt) << endl;
+		int unit=0;
+		while(fileSize>=1024)
+		{
+			fileSize/=1024;
+			unit++;
+		}
+		if(unit==0)
+		{
+			cout<<'\t'<<int(fileSize*filesCntInGroup)<<" B ; "<<int(fileSize)<<" B per file\n"
+				<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" B\n";	
+		}
+		if(unit==1)
+		{
+			cout<<'\t'<<fileSize*filesCntInGroup<<" KB ; "<<fileSize<<" KB per file\n"
+				<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" KB\n";	
+		}
+		if(unit==2)
+		{
+			cout<<'\t'<<fileSize*filesCntInGroup<<" MB ; "<<fileSize<<" MB per file\n"
+				<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" MB\n";	
+		}
+		if(unit>=3)
+		{
+			cout<<'\t'<<fileSize*filesCntInGroup<<" GB ; "<<fileSize<<" GB per file\n"
+				<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" GB\n";	
+		}
+		
+
+
+		for (int i = 0; i < filesCntInGroup; i++)
+			cout <<'\t'<< filenames[i] << endl;
+		cout << endl;
+	}
   }
+  if(!areThereDuplicates)
+	  cout<<"No duplicates found!\n";
+
   return 0;
 }
