@@ -1,7 +1,6 @@
 #include "HashGenerator.h"
 #include "TreeScanner.h"
 #include "UserInterface.h"
-
 #include "filesystem.h"
 #include "utils.h"
 
@@ -13,13 +12,18 @@
 using namespace std;
 
 
-int main() 
-{
-	cout<< "Please enter the absolute or relative path to a directory.\n";
- 	string base_directory;
-	getline(cin,base_directory);
-	if (!IsDirectory(base_directory)) {
-    cout << "It's not a valid directory !" << endl;
+int main(int argc, char* argv[]) {
+  string error_message =
+      "Please enter the absolute or relative path to a directory.";
+
+  // Parse the command line arguments.
+  if (argc != 2) {
+    cout << error_message << endl;
+    return 1;
+  }
+  string base_directory = string(argv[1]);
+  if (!IsDirectory(base_directory)) {
+    cout << error_message << endl;
     return 1;
   }
 
