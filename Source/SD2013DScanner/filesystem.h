@@ -17,11 +17,6 @@ bool IsFile(const string& path);
 // Checks whether the given absolute or relative path is a valid directory. 
 bool IsDirectory(const string& path);
 
-
-// Reads a file given by a absolute or relative path by treating it's
-// contents as binary bytes and packs them in a string which is returned.
-string ReadFileContents(const string& filename);
-
 // Returns the number of bytes the given file contains.
 size_t FileSizeInBytes(const string& filename);
 
