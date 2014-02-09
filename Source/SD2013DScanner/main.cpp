@@ -17,7 +17,7 @@ int main()
 {
 	cout<< "Please enter the absolute or relative path to a directory.\n";
  	string base_directory;
-	cin>>base_directory;
+	getline(cin,base_directory);
 	if (!IsDirectory(base_directory)) {
     cout << "It's not a valid directory !" << endl;
     return 1;
