@@ -16,7 +16,9 @@ TreeScanner:
       -void QuickScan() // version when only one array of unique hashes created ; scans only for duplicating hashes and outputs them
       
 HashGenerator:
+    
     ==no variables==
+    
     ==functions==
       - hashing functions - one for 1/10 file distribution one for unique hash per file;
       
