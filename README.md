@@ -2,6 +2,7 @@ duplicates
 ==========
 TO DO:
 TreeScanner:
+    
     ==variables==
       -string directory // contains main directory;
       -vector <map <string,string> > // array of pairs of strings : left (file hash) ; right (subdirectory to file) ;
