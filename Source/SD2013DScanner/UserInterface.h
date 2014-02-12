@@ -4,7 +4,6 @@
 class UserInterface
 {
 public:
-	UserInterface(void);
-	~UserInterface(void);
+	void output(map<string, vector<string> > classes);
 };
 

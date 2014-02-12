@@ -1,11 +1,55 @@
 #include "UserInterface.h"
+#include <iomanip>
 
 
-UserInterface::UserInterface(void)
+void UserInterface::output(map<string, vector<string> > classes)
 {
-}
+	TreeScanner scanner;
+	bool areThereDuplicates=false;
+	int class_cnt = 0;
 
-
-UserInterface::~UserInterface(void)
-{
+	cout<<fixed<<setprecision(2);
+	for (map<string, vector<string> >::iterator it = classes.begin();it != classes.end();it++)
+	{
+		vector<string>& filenames = it->second;
+		size_t filesCntInGroup=filenames.size();
+		if(filesCntInGroup>1)
+		{
+			areThereDuplicates=true;
+			double fileSize = scanner.FileSizeInBytes(filenames[0]);
+			cout << "Duplicate group #" << (++class_cnt) << endl;
+			int unit=0;
+			while(fileSize>=1024)
+			{
+				fileSize/=1024;
+				unit++;
+			}
+			if(unit==0)
+			{
+				cout<<'\t'<<int(fileSize*filesCntInGroup)<<" B ; "<<int(fileSize)<<" B per file\n"
+					<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" B\n";	
+			}
+			if(unit==1)
+			{
+				cout<<'\t'<<fileSize*filesCntInGroup<<" KB ; "<<fileSize<<" KB per file\n"
+					<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" KB\n";	
+			}
+			if(unit==2)
+			{
+				cout<<'\t'<<fileSize*filesCntInGroup<<" MB ; "<<fileSize<<" MB per file\n"
+					<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" MB\n";	
+			}
+			if(unit>=3)
+			{
+				cout<<'\t'<<fileSize*filesCntInGroup<<" GB ; "<<fileSize<<" GB per file\n"
+					<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" GB\n";	
+			}
+			
+			for (int i = 0; i < filesCntInGroup; i++)
+				cout <<'\t'<< filenames[i] << endl;
+			cout << endl;
+		}	
+    }
+    if(!areThereDuplicates)
+		cout<<"No duplicates found!\n";
 }
