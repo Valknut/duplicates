@@ -45,9 +45,7 @@ public:
 	void GetFilesAndDirectoriesRecursive(const string& base_path,vector<string>& files_and_directories);
 
 	/// Recursively traverses the files in a base directory and creates a map
-	/// from file contents to a vector of filenames. The contents of the files
-	/// are represented as C++ strings where each character represents a byte
-	/// from the file. This results in a grouping in which the names of all
+	/// from hashes of file contents to a vector of filenames. This results in a grouping in which the names of all
 	/// files with the same content are put into the same vector. 
 	void GroupIntoClasses(const string& base_directory,map<string, vector<string> >& classes);
 };
