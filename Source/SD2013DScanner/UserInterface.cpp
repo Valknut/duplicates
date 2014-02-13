@@ -49,7 +49,30 @@ void UserInterface::output(map<string, vector<string> > classes)
 				cout <<'\t'<< filenames[i] << endl;
 			cout << endl;
 		}	
-    }
-    if(!areThereDuplicates)
+	}
+	if(!areThereDuplicates)
 		cout<<"No duplicates found!\n";
+}
+
+void UserInterface::deleteFile(string fname)
+{
+		if(!DeleteFileA(fname.c_str()))
+			cerr<<"Error deleting"<<endl;
+}
+
+
+void UserInterface::deleteDuplicates ( map<string, vector<string> >classes)
+{
+	for (map<string, vector<string> >::iterator it = classes.begin();it != classes.end();it++)
+	{
+		vector <string>& filenames = it->second;
+		if(filenames.size() > 1)
+		{
+			size_t cnt = 1;
+			while(cnt < filenames.size())
+			{
+				deleteFile(filenames[cnt++]);
+			}
+		}
+	}
 }
