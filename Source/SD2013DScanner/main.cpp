@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
   scanner.GroupIntoClasses(mainDir,classes);
 
   UI.output(classes);
-//  UI.deleteDuplicates(classes);    << Uncomment to test duplicates delete
+  UI.deleteDuplicates(classes);   // << Uncomment to test duplicates delete
 
  
   return 0;

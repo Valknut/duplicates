@@ -7,6 +7,7 @@ void UserInterface::output(map<string, vector<string> > classes)
 	TreeScanner scanner;
 	bool areThereDuplicates=false;
 	int class_cnt = 0;
+	
 
 	cout<<fixed<<setprecision(2);
 	for (map<string, vector<string> >::iterator it = classes.begin();it != classes.end();it++)
@@ -45,11 +46,13 @@ void UserInterface::output(map<string, vector<string> > classes)
 					<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" GB\n";	
 			}
 			
-			for (int i = 0; i < filesCntInGroup; i++)
+			for (size_t i = 0; i < filesCntInGroup; i++)
 				cout <<'\t'<< filenames[i] << endl;
 			cout << endl;
 		}	
 	}
+
+
 	if(!areThereDuplicates)
 		cout<<"No duplicates found!\n";
 }
@@ -63,6 +66,9 @@ void UserInterface::deleteFile(string fname)
 
 void UserInterface::deleteDuplicates ( map<string, vector<string> >classes)
 {
+
+
+	clock_t start = clock();
 	for (map<string, vector<string> >::iterator it = classes.begin();it != classes.end();it++)
 	{
 		vector <string>& filenames = it->second;
@@ -74,5 +80,9 @@ void UserInterface::deleteDuplicates ( map<string, vector<string> >classes)
 				deleteFile(filenames[cnt++]);
 			}
 		}
+	
 	}
+	clock_t end = clock();
+	cout<<"Deleting took : " << (double) (end - start) << endl;
+	
 }
