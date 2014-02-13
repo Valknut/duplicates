@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 	UserInterface UI;
 
   // Parse the command line arguments.
-  if (argc != 2)
+if (argc != 2)
   {
 	  cout << "Please enter the path to a directory." << endl;
       return 1;
@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
   map<string, vector<string> > classes;
   scanner.GroupIntoClasses(mainDir,classes);
 
-  UI.output(classes);
+  UI.output_h(classes);
 //  UI.deleteDuplicates(classes);    << Uncomment to test duplicates delete
 
  

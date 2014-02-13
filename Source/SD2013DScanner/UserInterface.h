@@ -6,6 +6,7 @@ class UserInterface
 {
 public:
 	void output(map<string, vector<string> > classes);
+	void output_h(map <string, vector<string > > classes);
 private:
 	void deleteFile(string fname);
 public:

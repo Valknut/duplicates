@@ -2,6 +2,76 @@
 #include <iomanip>
 
 
+void UserInterface::output_h(map<string, vector<string> > classes)
+{
+	TreeScanner scanner;
+	bool areThereDuplicates=false;
+	int class_cnt = 0;
+	ofstream output;
+    output.open ("report.html");
+    output << "<!DOCTYPE html><html><head></head><body style=\"background-color:blue	;\">" ; //starting html
+
+	cout<<fixed<<setprecision(2);
+	for (map<string, vector<string> >::iterator it = classes.begin();it != classes.end();it++)
+	{
+		vector<string>& filenames = it->second;
+		size_t filesCntInGroup=filenames.size();
+		if(filesCntInGroup>1)
+		{
+			areThereDuplicates=true;
+			double fileSize = scanner.FileSizeInBytes(filenames[0]);
+			output <<" <h  style=\"background-color:green	;\"> "
+				<<"<b>Duplicate group #" << (++class_cnt) <<"</b></h>" << endl;
+			int unit=0;
+			while(fileSize>=1024)
+			{
+				fileSize/=1024;
+				unit++;
+			}
+			if(unit==0)
+			{
+				output << "<p><span style='font-weight: bold'>"
+					<<int(fileSize*filesCntInGroup)<<"</span><span>" 
+					<<" B ; "<<int(fileSize)<<"</span><span>"
+					<<" B per file"<< "</span><span>"
+					<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" B" <<"</span></p>";	
+			}
+			if(unit==1)
+			{
+				output << "<p><span style='font-weight: bold'>"
+					<<int(fileSize*filesCntInGroup)<<"</span><span>" 
+					<<" KB ; "<<int(fileSize)<<"</span><span>"
+					<<" KB per file"<< "</span><span>"
+					<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" KB" <<"</span></p>";
+			}
+			if(unit==2)
+			{
+					output << "<p><span style='font-weight: bold'>"
+					<<int(fileSize*filesCntInGroup)<<"</span><span>" 
+					<<" MB ; "<<int(fileSize)<<"</span><span>"
+					<<" MB per file"<< "</span><span>"
+					<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" MB" <<"</span></p>";
+			}
+			if(unit>=3)
+			{
+					output << "<p><span style='font-weight: bold'>"
+					<<int(fileSize*filesCntInGroup)<<"</span><span>" 
+					<<" MB ; "<<int(fileSize)<<"</span><span>"
+					<<" MB per file"<< "</span><span>"
+					<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" MB" <<"</span></p>";
+			}
+			
+			for (int i = 0; i < filesCntInGroup; i++)
+				output << " <id=\"header\" style=\"background-color:#00FF00;\"> " <<filenames[i] <<"<br> <hr>";
+			
+		}	
+	}
+	if(!areThereDuplicates)
+		output<<"<p>No duplicates found!</p>";
+	output << "</body></html>";
+    output.close();
+}
+
 void UserInterface::output(map<string, vector<string> > classes)
 {
 	TreeScanner scanner;
