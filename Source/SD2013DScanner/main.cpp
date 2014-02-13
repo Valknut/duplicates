@@ -16,9 +16,11 @@ int main(int argc, char* argv[])
 	UserInterface UI;
 
   // Parse the command line arguments.
-if (argc != 2)
+if (argc < 3)
   {
-	  cout << "Please enter the path to a directory." << endl;
+	  cout << "Please enter the path to a directory. AND/OR output option:" << endl
+		  <<"Example: \n Scanner.exe C:/../../ -cmd \n"
+		  <<"\t -cmd - Outputs in command line \n\t -html - Outputs in HTML \n";
       return 1;
   }
   string mainDir = string(argv[1]);
@@ -31,8 +33,14 @@ if (argc != 2)
   // Find and print out equivalence class information.
   map<string, vector<string> > classes;
   scanner.GroupIntoClasses(mainDir,classes);
-
-  UI.output_h(classes);
+ 
+	if(!strcmp(argv[2],"-cmd"))
+		 UI.output(classes);
+	if(!strcmp(argv[2],"-html"))
+	{
+		 UI.output_h(classes);
+		 system("report.html");
+	}
 //  UI.deleteDuplicates(classes);    << Uncomment to test duplicates delete
 
  
