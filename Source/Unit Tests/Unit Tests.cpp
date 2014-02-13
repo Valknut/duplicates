@@ -4,7 +4,7 @@
 #include "..\SD2013DScanner\SHA1.cpp"
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace TreeScanner_Test
+namespace Unit_Tests
 {		
 	TEST_CLASS(TreeScanner_Test)
 	{
@@ -50,6 +50,25 @@ namespace TreeScanner_Test
 			Assert::IsTrue(test.size()==4);
 
 		}
+		
 
 	};
+	TEST_CLASS(SHA1_Test)
+	{
+	public:
+		TEST_METHOD(Hashing_Test)
+		{
+			SHA1 test;
+			Assert::AreNotEqual(test.from_file("D:/SDP/Source/test_dir/alpha.txt"),
+				test.from_file("D:/SDP/Source/test_dir/bravo.txt"));
+
+			Assert::AreEqual(test.from_file("D:/SDP/Source/test_dir/bravo.txt"),
+				test.from_file("D:/SDP/Source/test_dir/New folder/zulu.txt"));
+
+			Assert::AreEqual(test.from_file("D:/SDP/Source/test_dir/MU.jpg"),
+				test.from_file("D:/SDP/Source/test_dir/New folder/united.jpg"));
+		}
+
+	};
+
 }
