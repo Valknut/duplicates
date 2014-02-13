@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 	UserInterface UI;
 
   // Parse the command line arguments.
-if (argc < 3)
+  if (argc < 3)
   {
 	  cout << "Please enter the path to a directory. AND/OR output option:" << endl
 		  <<"Example: \n Scanner.exe C:/../../ -cmd \n"

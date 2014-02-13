@@ -10,7 +10,7 @@ public:
 private:
 	void deleteFile(string fname);
 public:
-	void deleteDuplicates ( map<string, vector<string> >classes);
+	void deleteDuplicates ( map<string, vector<string> >classes,size_t class_cnt);
 
 };
 
