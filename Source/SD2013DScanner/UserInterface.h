@@ -5,12 +5,12 @@
 class UserInterface
 {
 public:
-	void output(map<string, vector<string> > classes);
+	void output(map<string, vector<string> >& classes);
 	void output_h(map <string, vector<string > > classes);
 private:
 	void deleteFile(string fname);
 public:
-	void deleteDuplicates ( map<string, vector<string> >classes,size_t class_cnt);
+	void deleteDuplicates ( map<string, vector<string> >& classes);
 
 };
 

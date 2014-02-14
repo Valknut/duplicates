@@ -41,8 +41,6 @@ int main(int argc, char* argv[])
 		 UI.output_h(classes);
 		 system("report.html");
 	}
-//  UI.deleteDuplicates(classes);    << Uncomment to test duplicates delete
-
  
   return 0;
 }

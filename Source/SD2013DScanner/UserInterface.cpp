@@ -72,8 +72,13 @@ void UserInterface::output_h(map<string, vector<string> > classes)
     output.close();
 }
 
-void UserInterface::output(map<string, vector<string> > classes)
+void UserInterface::output(map<string, vector<string> >& classes)
 {
+	if(classes.empty())
+	{
+		cout<<"No duplicates found!\n";
+		return;
+	}
 	TreeScanner scanner;
 	size_t class_cnt = 0;
 
@@ -82,46 +87,40 @@ void UserInterface::output(map<string, vector<string> > classes)
 	{
 		vector<string>& filenames = it->second;
 		size_t filesCntInGroup=filenames.size();
-		if(filesCntInGroup>1)
+		double fileSize = scanner.FileSizeInBytes(filenames[0]);
+		cout << "Duplicate group #" << (++class_cnt) << endl;
+		int unit=0;
+		while(fileSize>=1024)
 		{
-			double fileSize = scanner.FileSizeInBytes(filenames[0]);
-			cout << "Duplicate group #" << (++class_cnt) << endl;
-			int unit=0;
-			while(fileSize>=1024)
-			{
-				fileSize/=1024;
-				unit++;
-			}
-			if(unit==0)
-			{
-				cout<<'\t'<<int(fileSize*filesCntInGroup)<<" B ; "<<int(fileSize)<<" B per file\n"
-					<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" B\n";	
-			}
-			if(unit==1)
-			{
-				cout<<'\t'<<fileSize*filesCntInGroup<<" KB ; "<<fileSize<<" KB per file\n"
-					<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" KB\n";	
-			}
-			if(unit==2)
-			{
-				cout<<'\t'<<fileSize*filesCntInGroup<<" MB ; "<<fileSize<<" MB per file\n"
-					<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" MB\n";	
-			}
-			if(unit>=3)
-			{
-				cout<<'\t'<<fileSize*filesCntInGroup<<" GB ; "<<fileSize<<" GB per file\n"
-					<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" GB\n";	
-			}
-			
-			for (int i = 0; i < filesCntInGroup; i++)
-				cout <<'\t'<<i+1<<')'<< filenames[i] << endl;
-			cout << endl;
-		}	
+			fileSize/=1024;
+			unit++;
+		}
+		if(unit==0)
+		{
+			cout<<'\t'<<int(fileSize*filesCntInGroup)<<" B ; "<<int(fileSize)<<" B per file\n"
+				<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" B\n";	
+		}
+		if(unit==1)
+		{
+			cout<<'\t'<<fileSize*filesCntInGroup<<" KB ; "<<fileSize<<" KB per file\n"
+				<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" KB\n";	
+		}
+		if(unit==2)
+		{
+			cout<<'\t'<<fileSize*filesCntInGroup<<" MB ; "<<fileSize<<" MB per file\n"
+				<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" MB\n";	
+		}
+		if(unit>=3)
+		{
+			cout<<'\t'<<fileSize*filesCntInGroup<<" GB ; "<<fileSize<<" GB per file\n"
+				<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" GB\n";	
+		}
+
+		for (int i = 0; i < filesCntInGroup; i++)
+			cout <<'\t'<<i+1<<')'<< filenames[i] << endl;
+		cout << endl;
 	}
-	if(class_cnt==0)
-		cout<<"No duplicates found!\n";
-	else deleteDuplicates(classes,class_cnt);
-	
+	deleteDuplicates(classes);
 }
 
 void UserInterface::deleteFile(string fname)
@@ -131,7 +130,7 @@ void UserInterface::deleteFile(string fname)
 }
 
 
-void UserInterface::deleteDuplicates ( map<string, vector<string> >classes,size_t class_cnt)
+void UserInterface::deleteDuplicates (map<string, vector<string> >& classes)
 {
 	cout<<"Do you want to delete the redundant files ? (Y/N)";
 	char answer;
@@ -140,11 +139,11 @@ void UserInterface::deleteDuplicates ( map<string, vector<string> >classes,size_
 		return;
 
 	size_t choosenGroup=1;
-	if(class_cnt>1)
+	if(classes.size()>1)
 	{
 		cout<<"Select a group #: ";
 		cin>>choosenGroup;
-		if(choosenGroup<1 || choosenGroup>class_cnt)
+		if(choosenGroup<1 || choosenGroup>classes.size())
 		{
 			cout<<"Wrong choice.";
 			return;
@@ -152,31 +151,32 @@ void UserInterface::deleteDuplicates ( map<string, vector<string> >classes,size_
 	}
 		
 			
-		size_t group_cnt=0;
+	size_t group_cnt=0;
 	for (map<string, vector<string> >::iterator it = classes.begin();it != classes.end();it++)
 	{
-
 		vector <string>& filenames = it->second;
-		if(filenames.size() > 1)
+		if(++group_cnt==choosenGroup)
 		{
-			if(++group_cnt==choosenGroup)
+			size_t filename_cnt = 0;
+			cout<<"Which file do you want to keep ?";
+			size_t keep;
+			cin>>keep;
+			keep--;//real index
+			if(keep<0 || keep>=filenames.size())
 			{
-				size_t cnt = 0;
-				cout<<"Which file do you want to keep ?";
-				size_t keep;
-				cin>>keep;
-				keep--;
-				if(keep<0 || keep>filenames.size())
-				{
-					cout<<"Wrong choice.";
-					return;
-				}
-				while(cnt < filenames.size()&&cnt!=keep)
-				{
-					deleteFile(filenames[cnt++]);
-				}
+				cout<<"Wrong choice.";
 				return;
 			}
+			while(filename_cnt < filenames.size())
+			{
+				if(filename_cnt!=keep)
+					deleteFile(filenames[filename_cnt]);
+				filename_cnt++;
+			}
+			classes.erase(it);
+			cout<<endl;
+			output(classes);
+			return;
 		}
 	}
 }

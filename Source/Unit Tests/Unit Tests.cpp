@@ -47,7 +47,7 @@ namespace Unit_Tests
 			map<string, vector<string> > test;
 			Assert::IsTrue(test.empty());
 			scan.GroupIntoClasses("D:/SDP/Source/test_dir",test);
-			Assert::IsTrue(test.size()==4);
+			Assert::IsTrue(test.size()==2);
 
 		}
 		
