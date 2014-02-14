@@ -9,7 +9,7 @@ void UserInterface::output_h(map<string, vector<string> > classes)
 	int class_cnt = 0;
 	ofstream output;
     output.open ("report.html");
-    output << "<!DOCTYPE html><html><head></head><body style=\"background-color:blue	;\">" ; //starting html
+    output << "<!DOCTYPE html><html><head></head><body style=\"background-color:YellowGreen;\">" ; //starting html
 
 	cout<<fixed<<setprecision(2);
 	for (map<string, vector<string> >::iterator it = classes.begin();it != classes.end();it++)
@@ -20,7 +20,7 @@ void UserInterface::output_h(map<string, vector<string> > classes)
 		{
 			areThereDuplicates=true;
 			double fileSize = scanner.FileSizeInBytes(filenames[0]);
-			output <<" <h  style=\"background-color:green	;\"> "
+			output <<" <h  style=\"color:green	;\"> "
 				<<"<b>Duplicate group #" << (++class_cnt) <<"</b></h>" << endl;
 			int unit=0;
 			while(fileSize>=1024)
@@ -30,46 +30,59 @@ void UserInterface::output_h(map<string, vector<string> > classes)
 			}
 			if(unit==0)
 			{
-				output << "<p><span style='font-weight: bold'>"
-					<<int(fileSize*filesCntInGroup)<<"</span><span>" 
-					<<" B ; "<<int(fileSize)<<"</span><span>"
-					<<" B per file"<< "</span><span>"
-					<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" B" <<"</span></p>";	
+				output << "<p><p style=\"color:blue\";><b>"
+					<<int(fileSize*filesCntInGroup) 
+					<<" B ; "<<int(fileSize)
+					<<" B per file" 
+					<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" B" <<"</p></b>";	
 			}
 			if(unit==1)
 			{
-				output << "<p><span style='font-weight: bold'>"
-					<<int(fileSize*filesCntInGroup)<<"</span><span>" 
-					<<" KB ; "<<int(fileSize)<<"</span><span>"
-					<<" KB per file"<< "</span><span>"
-					<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" KB" <<"</span></p>";
+				output << "<p><p style=\"color:blue\";><b>"
+					<<int(fileSize*filesCntInGroup) 
+					<<" KB ; "<<int(fileSize)
+					<<" KB per file"
+					<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" KB" <<"</p></b>";
 			}
 			if(unit==2)
 			{
-					output << "<p><span style='font-weight: bold'>"
-					<<int(fileSize*filesCntInGroup)<<"</span><span>" 
-					<<" MB ; "<<int(fileSize)<<"</span><span>"
-					<<" MB per file"<< "</span><span>"
-					<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" MB" <<"</span></p>";
+					output << "<p><p style=\"color:blue\";><b>"
+					<<int(fileSize*filesCntInGroup)
+					<<" MB ; "<<int(fileSize)
+					<<" MB per file"
+					<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" MB" <<"</p></b>";
 			}
 			if(unit>=3)
 			{
-					output << "<p><span style='font-weight: bold'>"
-					<<int(fileSize*filesCntInGroup)<<"</span><span>" 
-					<<" MB ; "<<int(fileSize)<<"</span><span>"
-					<<" MB per file"<< "</span><span>"
-					<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" MB" <<"</span></p>";
+					output << "<p><p style=\"color:blue\";><b>"
+					<<int(fileSize*filesCntInGroup) 
+					<<" MB ; "<<int(fileSize)
+					<<" MB per file"
+					<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" MB" <<"</p></b>";
 			}
 			
 			for (int i = 0; i < filesCntInGroup; i++)
-				output << " <id=\"header\" style=\"background-color:#00FF00;\"> " <<filenames[i] <<"<br> <hr>";
+				output << " <id=\"header\" style=\"color:Chocolate\"; ><b> " <<filenames[i] <<"<br> <hr></b>";
+
 			
 		}	
 	}
 	if(!areThereDuplicates)
+	{
 		output<<"<p>No duplicates found!</p>";
-	output << "</body></html>";
-    output.close();
+		output << "</body></html>";
+		output.close();
+	}
+	else
+	{
+		output<<  "<p><p style=\"color:DarkRed\";><b>If you want to delete duplicates use the command prompt to choose which to preserve </b></p><br><hr>";
+		output << "</body></html>";
+		output.close();
+		 system("report.html");
+		deleteDuplicates(classes,class_cnt);
+	}
+
+	
 }
 
 void UserInterface::output(map<string, vector<string> > classes)

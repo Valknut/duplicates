@@ -33,15 +33,14 @@ int main(int argc, char* argv[])
   // Find and print out equivalence class information.
   map<string, vector<string> > classes;
   scanner.GroupIntoClasses(mainDir,classes);
- 
+  // Uses selected type of output form.
 	if(!strcmp(argv[2],"-cmd"))
 		 UI.output(classes);
 	if(!strcmp(argv[2],"-html"))
 	{
 		 UI.output_h(classes);
-		 system("report.html");
 	}
-//  UI.deleteDuplicates(classes);    << Uncomment to test duplicates delete
+
 
  
   return 0;
