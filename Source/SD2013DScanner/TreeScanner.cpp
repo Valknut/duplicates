@@ -67,7 +67,7 @@ void TreeScanner::GroupIntoClasses(const string& base_directory,map<string, vect
 		return;
     vector<string> files_and_directories;
 	GetFilesAndDirectoriesRecursive(base_directory, files_and_directories);
-
+#pragma omp parallel for
 	for (int i = 0; i < files_and_directories.size(); i++)
 	{
 		string& name = files_and_directories[i];

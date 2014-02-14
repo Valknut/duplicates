@@ -1,0 +1,105 @@
+\hypertarget{class_tree_scanner}{\section{Tree\-Scanner Class Reference}
+\label{class_tree_scanner}\index{Tree\-Scanner@{Tree\-Scanner}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_tree_scanner_ae00aada3fc132df9c016b929cf28c9bc}{Is\-File} (const string \&path)
+\item 
+\hypertarget{class_tree_scanner_aa7b2ea3b785abfeb7947fdd74ce64953}{bool \hyperlink{class_tree_scanner_aa7b2ea3b785abfeb7947fdd74ce64953}{Is\-Directory} (const string \&path)}\label{class_tree_scanner_aa7b2ea3b785abfeb7947fdd74ce64953}
+
+\begin{DoxyCompactList}\small\item\em Checks whether the given absolute or relative path is a valid directory. \end{DoxyCompactList}\item 
+size\-\_\-t \hyperlink{class_tree_scanner_af9f6d985cb42d2cd7505b1213edd04b8}{File\-Size\-In\-Bytes} (const string \&filename)
+\item 
+vector$<$ string $>$ \hyperlink{class_tree_scanner_a1ad8ab7b22690ae99f25e9b26ab31f6d}{Get\-Files\-And\-Directories\-Flat} (const string \&directory)
+\begin{DoxyCompactList}\small\item\em given directory specified by its absolute or relative path. \end{DoxyCompactList}\item 
+void \hyperlink{class_tree_scanner_a042ddf3be0d3960dbca0362fb52cd1cd}{Get\-Files\-And\-Directories\-Recursive} (const string \&base\-\_\-path, vector$<$ string $>$ \&files\-\_\-and\-\_\-directories)
+\item 
+void \hyperlink{class_tree_scanner_add67141b6bca7a3abc72ea305ac915bd}{Group\-Into\-Classes} (const string \&base\-\_\-directory, map$<$ string, vector$<$ string $>$ $>$ \&classes)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_tree_scanner_af9f6d985cb42d2cd7505b1213edd04b8}{\index{Tree\-Scanner@{Tree\-Scanner}!File\-Size\-In\-Bytes@{File\-Size\-In\-Bytes}}
+\index{File\-Size\-In\-Bytes@{File\-Size\-In\-Bytes}!TreeScanner@{Tree\-Scanner}}
+\subsubsection[{File\-Size\-In\-Bytes}]{\setlength{\rightskip}{0pt plus 5cm}size\-\_\-t Tree\-Scanner\-::\-File\-Size\-In\-Bytes (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{filename}
+\end{DoxyParamCaption}
+)}}\label{class_tree_scanner_af9f6d985cb42d2cd7505b1213edd04b8}
+A method that estimates the size of a file 
+\begin{DoxyParams}{Parameters}
+{\em filename} & A constant reference to a string of a filename \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of bytes the given file contains. 
+\end{DoxyReturn}
+\hypertarget{class_tree_scanner_a1ad8ab7b22690ae99f25e9b26ab31f6d}{\index{Tree\-Scanner@{Tree\-Scanner}!Get\-Files\-And\-Directories\-Flat@{Get\-Files\-And\-Directories\-Flat}}
+\index{Get\-Files\-And\-Directories\-Flat@{Get\-Files\-And\-Directories\-Flat}!TreeScanner@{Tree\-Scanner}}
+\subsubsection[{Get\-Files\-And\-Directories\-Flat}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ string $>$ Tree\-Scanner\-::\-Get\-Files\-And\-Directories\-Flat (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{directory}
+\end{DoxyParamCaption}
+)}}\label{class_tree_scanner_a1ad8ab7b22690ae99f25e9b26ab31f6d}
+
+
+given directory specified by its absolute or relative path. 
+
+Returns the names of all files and directories directly contained in a
+
+
+\begin{DoxyParams}{Parameters}
+{\em directory} & a string to the main directory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the names of all files and directories directly or indirectly (recursively) contained in a given directory specified by it's absolute or relative path. The names are stored in the output parameter\-: files\-\_\-and\-\_\-directories and are included using an in-\/order traversal of the filesystem.. 
+\end{DoxyReturn}
+\hypertarget{class_tree_scanner_a042ddf3be0d3960dbca0362fb52cd1cd}{\index{Tree\-Scanner@{Tree\-Scanner}!Get\-Files\-And\-Directories\-Recursive@{Get\-Files\-And\-Directories\-Recursive}}
+\index{Get\-Files\-And\-Directories\-Recursive@{Get\-Files\-And\-Directories\-Recursive}!TreeScanner@{Tree\-Scanner}}
+\subsubsection[{Get\-Files\-And\-Directories\-Recursive}]{\setlength{\rightskip}{0pt plus 5cm}void Tree\-Scanner\-::\-Get\-Files\-And\-Directories\-Recursive (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{base\-\_\-path, }
+\item[{vector$<$ string $>$ \&}]{files\-\_\-and\-\_\-directories}
+\end{DoxyParamCaption}
+)}}\label{class_tree_scanner_a042ddf3be0d3960dbca0362fb52cd1cd}
+Recursive version of Get\-Files\-And\-Directories\-Flat(...) \begin{DoxySeeAlso}{See Also}
+\hyperlink{class_tree_scanner_a1ad8ab7b22690ae99f25e9b26ab31f6d}{Get\-Files\-And\-Directories\-Flat()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em base\-\_\-path} & A constant reference to a string a base path \\
+\hline
+{\em files\-\_\-and\-\_\-directories} & A reference to a vector of strings of filenames and the paths to them \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_tree_scanner_add67141b6bca7a3abc72ea305ac915bd}{\index{Tree\-Scanner@{Tree\-Scanner}!Group\-Into\-Classes@{Group\-Into\-Classes}}
+\index{Group\-Into\-Classes@{Group\-Into\-Classes}!TreeScanner@{Tree\-Scanner}}
+\subsubsection[{Group\-Into\-Classes}]{\setlength{\rightskip}{0pt plus 5cm}void Tree\-Scanner\-::\-Group\-Into\-Classes (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{base\-\_\-directory, }
+\item[{map$<$ string, vector$<$ string $>$ $>$ \&}]{classes}
+\end{DoxyParamCaption}
+)}}\label{class_tree_scanner_add67141b6bca7a3abc72ea305ac915bd}
+Recursively traverses the files in a base directory and creates a map from hashes of file contents to a vector of filenames. This results in a grouping in which the names of all files with the same content are put into the same vector. \hypertarget{class_tree_scanner_ae00aada3fc132df9c016b929cf28c9bc}{\index{Tree\-Scanner@{Tree\-Scanner}!Is\-File@{Is\-File}}
+\index{Is\-File@{Is\-File}!TreeScanner@{Tree\-Scanner}}
+\subsubsection[{Is\-File}]{\setlength{\rightskip}{0pt plus 5cm}bool Tree\-Scanner\-::\-Is\-File (
+\begin{DoxyParamCaption}
+\item[{const string \&}]{path}
+\end{DoxyParamCaption}
+)}}\label{class_tree_scanner_ae00aada3fc132df9c016b929cf28c9bc}
+Checks whether the given absolute or relative path is a valid file. 
+\begin{DoxyParams}{Parameters}
+{\em path} & A constant reference to a string of a path \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A whether the string is a path to a file 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+E\-:/duplicates/\-Source/\-S\-D2013\-D\-Scanner/Tree\-Scanner.\-h\item 
+E\-:/duplicates/\-Source/\-S\-D2013\-D\-Scanner/Tree\-Scanner.\-cpp\end{DoxyCompactItemize}
