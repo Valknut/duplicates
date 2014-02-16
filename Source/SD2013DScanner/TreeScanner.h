@@ -28,14 +28,14 @@ public:
 	
 	//!  Returns the names of all files and directories directly contained in a
 		//! given directory specified by its absolute or relative path.
-    /*!
-      \param directory a string to the main directory.
-      \return  Returns the names of all files and directories directly or indirectly
+	/*!
+	  \param directory a string to the main directory.
+	  \return  Returns the names of all files and directories directly or indirectly
 	 (recursively) contained in a given directory specified by it's absolute
 	 or relative path. The names are stored in the output parameter:
 	 files_and_directories and are included using an in-order traversal of
 	 the filesystem..
-    */
+	*/
 	vector<string> GetFilesAndDirectoriesFlat(const string& directory);
 
 	///Recursive version of GetFilesAndDirectoriesFlat(...)
