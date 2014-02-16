@@ -31,9 +31,7 @@ void MainWindow::on_scanButton_clicked()
     scanner.GroupIntoClasses (directoryInput.toLocal8Bit().constData(),classes);
     QString output;
     ui1.qtOutput(classes,&output,ui->tableWidget);
-  //  ui->textEdit->setPlainText(output);
-
-
+    cout<<"1";
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -42,7 +40,9 @@ void MainWindow::on_pushButton_clicked()
     for (int i =1;i<rCount-1;i++)
     {
         QCheckBox* cBox = qobject_cast<QCheckBox*> (ui->tableWidget->cellWidget(i,1));
-        if(cBox->isChecked()&& !(ui->tableWidget->item(i,1)->text()->isEmpty()))
+        if(!cBox)
+            continue;
+        if(cBox->isChecked())
             ui1.deleteFile(cBox->text().toStdString());
     }
     on_scanButton_clicked();
