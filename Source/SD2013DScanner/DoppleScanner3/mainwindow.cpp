@@ -56,6 +56,6 @@ void MainWindow::on_masterCheck_stateChanged(int arg1)
         QCheckBox* cBox = qobject_cast<QCheckBox*> (ui->tableWidget->cellWidget(i,1));
         if(!cBox)
             continue;
-        cBox->setCheckState(ui->masterCheck->checkState());
+        cBox->setCheckState((Qt::CheckState)arg1);
     }
 }
