@@ -42,7 +42,7 @@ void MainWindow::on_pushButton_clicked()
     for (int i =1;i<rCount-1;i++)
     {
         QCheckBox* cBox = qobject_cast<QCheckBox*> (ui->tableWidget->cellWidget(i,1));
-        if(cBox->isChecked())
+        if(cBox->isChecked()&& !(ui->tableWidget->item(i,1)->text()->isEmpty()))
             ui1.deleteFile(cBox->text().toStdString());
     }
     on_scanButton_clicked();
