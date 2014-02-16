@@ -181,6 +181,8 @@ void UserInterface::qtOutput(map<string , vector<string> >& classes, QString *ou
       table->setColumnCount(3);
       table->setHorizontalHeaderLabels(QString("Group;File;Memory Loss").split(";"));
       table->insertRow(currentRow);
+      table->setCellWidget(0,1,new QCheckBox("Check All"));
+      table->item(0,1)->setCheckState(Qt::Unchecked);
       if (classes.empty())
       {
           stream << "No duplicates found!";
