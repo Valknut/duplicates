@@ -18,7 +18,9 @@ public:
 private slots:
     void on_scanButton_clicked();
 
-    void on_pushButton_clicked();
+    void on_deleteButton_clicked();
+
+    void on_masterCheck_stateChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;

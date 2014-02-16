@@ -34,7 +34,7 @@ void MainWindow::on_scanButton_clicked()
     cout<<"1";
 }
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_deleteButton_clicked()
 {   int rCount = ui->tableWidget->rowCount();
     UserInterface ui1;
     for (int i =1;i<rCount-1;i++)
@@ -46,4 +46,16 @@ void MainWindow::on_pushButton_clicked()
             ui1.deleteFile(cBox->text().toStdString());
     }
     on_scanButton_clicked();
+}
+
+void MainWindow::on_masterCheck_stateChanged(int arg1)
+{
+    int rCount = ui->tableWidget->rowCount();
+    for(int i = 1 ; i<rCount-1;i++)
+    {
+        QCheckBox* cBox = qobject_cast<QCheckBox*> (ui->tableWidget->cellWidget(i,1));
+        if(!cBox)
+            continue;
+        cBox->setCheckState(ui->masterCheck->checkState());
+    }
 }

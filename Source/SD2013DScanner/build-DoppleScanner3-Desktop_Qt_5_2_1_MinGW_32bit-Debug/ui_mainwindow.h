@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -33,9 +34,11 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_2;
     QLabel *label_2;
+    QCheckBox *masterCheck;
     QTableWidget *tableWidget;
-    QPushButton *pushButton;
+    QPushButton *deleteButton;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
     QLineEdit *pathInput;
@@ -55,20 +58,31 @@ public:
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
 
-        verticalLayout->addWidget(label_2);
+        horizontalLayout_2->addWidget(label_2);
+
+        masterCheck = new QCheckBox(centralWidget);
+        masterCheck->setObjectName(QStringLiteral("masterCheck"));
+
+        horizontalLayout_2->addWidget(masterCheck);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
 
         tableWidget = new QTableWidget(centralWidget);
         tableWidget->setObjectName(QStringLiteral("tableWidget"));
 
         verticalLayout->addWidget(tableWidget);
 
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        deleteButton = new QPushButton(centralWidget);
+        deleteButton->setObjectName(QStringLiteral("deleteButton"));
 
-        verticalLayout->addWidget(pushButton);
+        verticalLayout->addWidget(deleteButton);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
@@ -112,7 +126,8 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         label_2->setText(QApplication::translate("MainWindow", "Duplicates in the chosen directory: ", 0));
-        pushButton->setText(QApplication::translate("MainWindow", "Delete Chosen Files", 0));
+        masterCheck->setText(QApplication::translate("MainWindow", "Check All", 0));
+        deleteButton->setText(QApplication::translate("MainWindow", "Delete Chosen Files", 0));
         label->setText(QApplication::translate("MainWindow", "Search Directory", 0));
         scanButton->setText(QApplication::translate("MainWindow", "Scan!", 0));
     } // retranslateUi
