@@ -2,13 +2,23 @@
 #include <iomanip>
 
 
-void UserInterface::output_h(map<string, vector<string> > classes)
+void UserInterface::output_h(map<string, vector<string> >& classes)
 {
+	
 	TreeScanner scanner;
 	int class_cnt = 0;
 	ofstream output;
-    output.open ("report.html");
-    output << "<!DOCTYPE html><html><head></head><body style=\"background-color:YellowGreen	;\">" ; //starting html
+	output.open ("report.html");
+	output << "<!DOCTYPE html><html><head> </head><body style=\"background-color:YellowGreen	;\">" ; //starting html
+	if(classes.empty())
+	{
+		output<<"<p>No duplicates found!</p>";
+		output << "</body></html>";
+		output.close();
+		system("report.html");
+		return;
+	}
+	string memoryUnit[4] = {"B","KB","MB","GB"};
 
 	cout<<fixed<<setprecision(2);
 	for (map<string, vector<string> >::iterator it = classes.begin();it != classes.end();it++)
@@ -27,58 +37,29 @@ void UserInterface::output_h(map<string, vector<string> > classes)
 				fileSize/=1024;
 				unit++;
 			}
-			if(unit==0)
-			{
-				output << "<p><p style=\"color:blue\";><b>"
- 						<<int(fileSize*filesCntInGroup) 
- 						<<" B ; "<<int(fileSize)
- 						<<" B per file" 
- 						<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" B" <<"</p></b>";		
-			}
-			if(unit==1)
-			{
-				output << "<p><p style=\"color:blue\";><b>"
- 						<<int(fileSize*filesCntInGroup) 
- 						<<" KB ; "<<int(fileSize)
- 						<<" KB per file"
- 						<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" KB" <<"</p></b>";
-			}
-			if(unit==2)
-			{
-					output << "<p><p style=\"color:blue\";><b>"
- 							<<int(fileSize*filesCntInGroup)
- 							<<" MB ; "<<int(fileSize)
- 							<<" MB per file"
- 							<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" MB" <<"</p></b>";
-			}
-			if(unit>=3)
-			{
-					output << "<p><p style=\"color:blue\";><b>"
- 							<<int(fileSize*filesCntInGroup) 
-							<<" GB ; "<<int(fileSize)
- 							<<" GB per file"
- 							<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" GB" <<"</p></b>";
-			}
 			
-			for (int i = 0; i < filesCntInGroup; i++)
-				output << " <id=\"header\" style=\"color:Chocolate\"; ><b> " <<filenames[i] <<"<br> <hr></b>";
+				output << "<p><p style=\"color:blue\";><b>"
+						<<int(fileSize*filesCntInGroup) 
+						<<" "<<memoryUnit[unit]<<"; "<<int(fileSize)
+						<<" "<<memoryUnit[unit]<<" per file" 
+						<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" "
+						<<memoryUnit[unit]<<"</p></b>";		
+			
+			
+            for (size_t i = 0; i < filesCntInGroup; i++)
+				output << " <id=\"header\" style=\"color:Chocolate\"; ><b> "
+				<<filenames[i] <<"<br> <hr></b>";
 			
 		}	
 	}
-	if(class_cnt==0)
-	{
-		output<<"<p>No duplicates found!</p>";
+	
+	
+		output<<  "<p><p style=\"color:DarkRed\";><b>If you want to delete duplicates use the command prompt to choose which to preserve </b></p><br><hr>";
 		output << "</body></html>";
- 		output.close();
- 	}
- 	else
- 	{
- 		output<<  "<p><p style=\"color:DarkRed\";><b>If you want to delete duplicates use the command prompt to choose which to preserve </b></p><br><hr>";
- 		output << "</body></html>";
- 		output.close();
- 		 system("report.html");
- 		deleteDuplicates(classes);
- 	}
+		output.close();
+		 system("report.html");
+		deleteDuplicates(classes,'h');
+	
 }
 
 void UserInterface::output(map<string, vector<string> >& classes)
@@ -90,6 +71,7 @@ void UserInterface::output(map<string, vector<string> >& classes)
 	}
 	TreeScanner scanner;
 	size_t class_cnt = 0;
+	string memoryUnit[4] = {"B","KB","MB","GB"};
 
 	cout<<fixed<<setprecision(2);
 	for (map<string, vector<string> >::iterator it = classes.begin();it != classes.end();it++)
@@ -104,32 +86,18 @@ void UserInterface::output(map<string, vector<string> >& classes)
 			fileSize/=1024;
 			unit++;
 		}
-		if(unit==0)
-		{
-			cout<<'\t'<<int(fileSize*filesCntInGroup)<<" B ; "<<int(fileSize)<<" B per file\n"
-				<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" B\n";	
-		}
-		if(unit==1)
-		{
-			cout<<'\t'<<fileSize*filesCntInGroup<<" KB ; "<<fileSize<<" KB per file\n"
-				<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" KB\n";	
-		}
-		if(unit==2)
-		{
-			cout<<'\t'<<fileSize*filesCntInGroup<<" MB ; "<<fileSize<<" MB per file\n"
-				<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" MB\n";	
-		}
-		if(unit>=3)
-		{
-			cout<<'\t'<<fileSize*filesCntInGroup<<" GB ; "<<fileSize<<" GB per file\n"
-				<<"\tMemory loss : "<<fileSize*(filesCntInGroup-1)<<" GB\n";	
-		}
+		
+			cout<<'\t'<<int(fileSize*filesCntInGroup)<<" "<<memoryUnit[unit]<<" ; "
+				<<int(fileSize)<<" "<<memoryUnit[unit]<<" per file\n"
+				<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))
+				<<" "<<memoryUnit[unit]<<endl;	
+		
 
-		for (int i = 0; i < filesCntInGroup; i++)
+        for (size_t i = 0; i < filesCntInGroup; i++)
 			cout <<'\t'<<i+1<<')'<< filenames[i] << endl;
 		cout << endl;
 	}
-	deleteDuplicates(classes);
+	deleteDuplicates(classes,'c');
 }
 
 void UserInterface::deleteFile(string fname)
@@ -139,7 +107,7 @@ void UserInterface::deleteFile(string fname)
 }
 
 
-void UserInterface::deleteDuplicates (map<string, vector<string> >& classes)
+void UserInterface::deleteDuplicates (map<string, vector<string> >& classes,char token)
 {
 	cout<<"Do you want to delete the redundant files ? (Y/N)";
 	char answer;
@@ -168,24 +136,32 @@ void UserInterface::deleteDuplicates (map<string, vector<string> >& classes)
 		{
 			size_t filename_cnt = 0;
 			cout<<"Which file do you want to keep ?";
-			size_t keep;
+            int keep;
 			cin>>keep;
 			keep--;//real index
-			if(keep<0 || keep>=filenames.size())
+            if(keep<0 || keep>= (int)filenames.size())
 			{
 				cout<<"Wrong choice.";
 				return;
 			}
 			while(filename_cnt < filenames.size())
 			{
-				if(filename_cnt!=keep)
+                if((int)filename_cnt!=keep)
 					deleteFile(filenames[filename_cnt]);
 				filename_cnt++;
 			}
 			classes.erase(it);
 			cout<<endl;
-			output(classes);
+			switch (token)
+			{
+				case 'c':
+				output(classes);
+				break;
+				case 'h':
+				output_h(classes);
+			}
 			return;
 		}
 	}
 }
+

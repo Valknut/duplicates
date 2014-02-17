@@ -13,7 +13,7 @@ public:
 	void output(map<string, vector<string> >& classes);
 	/// HTML version of output()
  	///@see output()
-	void output_h(map <string, vector<string > > classes);
+	void output_h(map <string, vector<string > >& classes);
 private:
 	/// Deletes a single file
  	///@param fname A string of a directory to a file
@@ -21,7 +21,7 @@ private:
 public:
 	///Deletes a group of duplicates except one chosen by the user
  	///@param class_cnt Keeps count of how many duplicates groups there are.
-	void deleteDuplicates ( map<string, vector<string> >& classes);
+	void deleteDuplicates ( map<string, vector<string> >& classes, char token);
 
 };
 

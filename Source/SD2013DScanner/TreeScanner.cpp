@@ -9,7 +9,7 @@ bool TreeScanner::IsFile (const string& path)
 
 bool TreeScanner::IsDirectory(const string& path)
 {
-    DWORD attributes = GetFileAttributesA(path.c_str());
+	DWORD attributes = GetFileAttributesA(path.c_str());
 	return attributes & FILE_ATTRIBUTE_DIRECTORY;
 }
 
@@ -17,7 +17,7 @@ bool TreeScanner::IsDirectory(const string& path)
 size_t TreeScanner::FileSizeInBytes(const string& filename) 
 {
 	size_t size=0;
-    ifstream is (filename, ios::binary|ios::ate);
+    ifstream is (filename.c_str(), ios::binary|ios::ate);
 	if (is)
 		size= is.tellg();
 	is.close();
@@ -42,8 +42,8 @@ vector<string> TreeScanner::GetFilesAndDirectoriesFlat(const string& directory)
 		if (!FindNextFileA(find_data_handle, &find_data))
 			break;
 	}
-    FindClose(find_data_handle);
-    return files_and_directories;
+	FindClose(find_data_handle);
+	return files_and_directories;
 }
 
 void TreeScanner::GetFilesAndDirectoriesRecursive(const string& base_path,vector<string>& files_and_directories)
@@ -52,10 +52,10 @@ void TreeScanner::GetFilesAndDirectoriesRecursive(const string& base_path,vector
 	if (IsDirectory(base_path))
 	{
 		vector<string> files_and_directories_flat =	GetFilesAndDirectoriesFlat(base_path);
-		for (int i = 0; i < files_and_directories_flat.size(); i++)
+        for (int i = 0; i <(int) files_and_directories_flat.size(); i++)
 		{
 			string name = files_and_directories_flat[i];
-		    GetFilesAndDirectoriesRecursive(base_path + "\\" + name,files_and_directories);
+			GetFilesAndDirectoriesRecursive(base_path + "\\" + name,files_and_directories);
 		}
 	}
 }
@@ -63,12 +63,12 @@ void TreeScanner::GetFilesAndDirectoriesRecursive(const string& base_path,vector
 void TreeScanner::GroupIntoClasses(const string& base_directory,map<string, vector<string> >& classes)
 {
 	classes.clear();
-    if (!IsDirectory(base_directory))
+	if (!IsDirectory(base_directory))
 		return;
-    vector<string> files_and_directories;
+	vector<string> files_and_directories;
 	GetFilesAndDirectoriesRecursive(base_directory, files_and_directories);
 #pragma omp parallel for
-	for (int i = 0; i < files_and_directories.size(); i++)
+    for (int i = 0; i <(int) files_and_directories.size(); i++)
 	{
 		string& name = files_and_directories[i];
 		SHA1 hash;
