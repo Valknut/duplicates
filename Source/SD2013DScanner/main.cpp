@@ -21,13 +21,13 @@ int main(int argc, char* argv[])
 	  cout << "Please enter the path to a directory. AND/OR output option:" << endl
 		  <<"Example: \n Scanner.exe C:/../../ -cmd \n"
 		  <<"\t -cmd - Outputs in command line \n\t -html - Outputs in HTML \n";
-      return 1;
+	  return 1;
   }
   string mainDir = string(argv[1]);
   if (!scanner.IsDirectory(mainDir))
   {
 	  cout << "Please enter the path to a directory." << endl;
-      return 1;
+	  return 1;
   }
 
   // Find and print out equivalence class information.

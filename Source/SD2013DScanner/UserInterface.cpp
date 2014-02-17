@@ -44,9 +44,15 @@ void UserInterface::output_h(map<string, vector<string> >& classes)
 						<<" "<<memoryUnit[unit]<<" per file" 
 						<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" "
 						<<memoryUnit[unit]<<"</p></b>";		
+<<<<<<< HEAD
 			
 			
             for (size_t i = 0; i < filesCntInGroup; i++)
+=======
+			
+			
+			for (int i = 0; i < filesCntInGroup; i++)
+>>>>>>> optimizations
 				output << " <id=\"header\" style=\"color:Chocolate\"; ><b> "
 				<<filenames[i] <<"<br> <hr></b>";
 			

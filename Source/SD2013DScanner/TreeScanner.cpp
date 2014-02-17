@@ -17,7 +17,11 @@ bool TreeScanner::IsDirectory(const string& path)
 size_t TreeScanner::FileSizeInBytes(const string& filename) 
 {
 	size_t size=0;
+<<<<<<< HEAD
     ifstream is (filename.c_str(), ios::binary|ios::ate);
+=======
+	ifstream is (filename, ios::binary|ios::ate);
+>>>>>>> optimizations
 	if (is)
 		size= is.tellg();
 	is.close();
