@@ -17,11 +17,9 @@ bool TreeScanner::IsDirectory(const string& path)
 size_t TreeScanner::FileSizeInBytes(const string& filename) 
 {
 	size_t size=0;
-<<<<<<< HEAD
-    ifstream is (filename.c_str(), ios::binary|ios::ate);
-=======
+
 	ifstream is (filename, ios::binary|ios::ate);
->>>>>>> optimizations
+
 	if (is)
 		size= is.tellg();
 	is.close();
@@ -71,7 +69,6 @@ void TreeScanner::GroupIntoClasses(const string& base_directory,map<string, vect
 		return;
 	vector<string> files_and_directories;
 	GetFilesAndDirectoriesRecursive(base_directory, files_and_directories);
-#pragma omp parallel for
     for (int i = 0; i <(int) files_and_directories.size(); i++)
 	{
 		string& name = files_and_directories[i];
@@ -80,6 +77,8 @@ void TreeScanner::GroupIntoClasses(const string& base_directory,map<string, vect
 			classes[hash.from_file(name)].push_back(name);
 	}
 	map<string, vector<string> >::iterator it = classes.begin();
+	if(classes.empty())
+		return;
 	while(it != classes.end())
 	{
 		if(it->second.size()==1)

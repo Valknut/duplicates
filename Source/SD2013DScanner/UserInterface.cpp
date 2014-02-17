@@ -1,5 +1,6 @@
 #include "UserInterface.h"
 #include <iomanip>
+#include <assert.h>
 
 
 void UserInterface::output_h(map<string, vector<string> >& classes)
@@ -10,9 +11,10 @@ void UserInterface::output_h(map<string, vector<string> >& classes)
 	ofstream output;
 	output.open ("report.html");
 	output << "<!DOCTYPE html><html><head> </head><body style=\"background-color:YellowGreen	;\">" ; //starting html
+
 	if(classes.empty())
 	{
-		output<<"<p>No duplicates found!</p>";
+		output<<"<b><p style=\"color:Red;\">No duplicates found!</p></b>";
 		output << "</body></html>";
 		output.close();
 		system("report.html");
@@ -44,15 +46,10 @@ void UserInterface::output_h(map<string, vector<string> >& classes)
 						<<" "<<memoryUnit[unit]<<" per file" 
 						<<"\tMemory loss : "<<int(fileSize*(filesCntInGroup-1))<<" "
 						<<memoryUnit[unit]<<"</p></b>";		
-<<<<<<< HEAD
+
 			
 			
-            for (size_t i = 0; i < filesCntInGroup; i++)
-=======
-			
-			
-			for (int i = 0; i < filesCntInGroup; i++)
->>>>>>> optimizations
+			for (int i = 0; i < filesCntInGroup; i++)	
 				output << " <id=\"header\" style=\"color:Chocolate\"; ><b> "
 				<<filenames[i] <<"<br> <hr></b>";
 			
@@ -165,6 +162,7 @@ void UserInterface::deleteDuplicates (map<string, vector<string> >& classes,char
 				break;
 				case 'h':
 				output_h(classes);
+				break;
 			}
 			return;
 		}
