@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -88,35 +89,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="_user_interface_8h_source.html">UserInterface.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_dopple_scanner3_2_user_interface_8h_source.html">UserInterface.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a13170d15472392870c9a9863360a5423"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_interface.html#a13170d15472392870c9a9863360a5423">output</a> (map&lt; string, vector&lt; string &gt; &gt; classes)</td></tr>
-<tr class="separator:a13170d15472392870c9a9863360a5423"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d719c7a1ad8c8cf653c688ab50cc9c3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_interface.html#a4d719c7a1ad8c8cf653c688ab50cc9c3">output_h</a> (map&lt; string, vector&lt; string &gt; &gt; classes)</td></tr>
-<tr class="separator:a4d719c7a1ad8c8cf653c688ab50cc9c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa15d90714deb218022d3754bddd93852"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_interface.html#aa15d90714deb218022d3754bddd93852">deleteDuplicates</a> (map&lt; string, vector&lt; string &gt; &gt;classes, size_t class_cnt)</td></tr>
-<tr class="separator:aa15d90714deb218022d3754bddd93852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed960186e9c41fd8367b3d71da546f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_interface.html#a8ed960186e9c41fd8367b3d71da546f8">output</a> (map&lt; string, vector&lt; string &gt; &gt; &amp;classes)</td></tr>
+<tr class="separator:a8ed960186e9c41fd8367b3d71da546f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad27a5035bcd5d32eaf2ca870e8ab10a7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_interface.html#ad27a5035bcd5d32eaf2ca870e8ab10a7">output_h</a> (map&lt; string, vector&lt; string &gt; &gt; &amp;classes)</td></tr>
+<tr class="separator:ad27a5035bcd5d32eaf2ca870e8ab10a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62000ec96ec57056f5b6e6a6fcbfc719"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_interface.html#a62000ec96ec57056f5b6e6a6fcbfc719">deleteFile</a> (string fname)</td></tr>
+<tr class="separator:a62000ec96ec57056f5b6e6a6fcbfc719"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb94642309072d3927dac399afd744c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_interface.html#afb94642309072d3927dac399afd744c2">deleteDuplicates</a> (map&lt; string, vector&lt; string &gt; &gt; &amp;classes, char token)</td></tr>
+<tr class="separator:afb94642309072d3927dac399afd744c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec96db5035550670c88f077d36b7ef24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_interface.html#aec96db5035550670c88f077d36b7ef24">qtOutput</a> (map&lt; string, vector&lt; string &gt; &gt; &amp;classes, QString *<a class="el" href="class_user_interface.html#a8ed960186e9c41fd8367b3d71da546f8">output</a>, QTableWidget *table)</td></tr>
+<tr class="separator:aec96db5035550670c88f077d36b7ef24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ed960186e9c41fd8367b3d71da546f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_interface.html#a8ed960186e9c41fd8367b3d71da546f8">output</a> (map&lt; string, vector&lt; string &gt; &gt; &amp;classes)</td></tr>
+<tr class="separator:a8ed960186e9c41fd8367b3d71da546f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad27a5035bcd5d32eaf2ca870e8ab10a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad27a5035bcd5d32eaf2ca870e8ab10a7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>output_h</b> (map&lt; string, vector&lt; string &gt; &gt; &amp;classes)</td></tr>
+<tr class="separator:ad27a5035bcd5d32eaf2ca870e8ab10a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb94642309072d3927dac399afd744c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_user_interface.html#afb94642309072d3927dac399afd744c2">deleteDuplicates</a> (map&lt; string, vector&lt; string &gt; &gt; &amp;classes, char token)</td></tr>
+<tr class="separator:afb94642309072d3927dac399afd744c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Constructs the user interface and contains the different types ot output and input forms </p>
+<div class="textblock"><p>Constructs the user interface and contains. the different types ot output and input forms. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa15d90714deb218022d3754bddd93852"></a>
+<a class="anchor" id="afb94642309072d3927dac399afd744c2"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void UserInterface::deleteDuplicates </td>
           <td>(</td>
-          <td class="paramtype">map&lt; string, vector&lt; string &gt; &gt;&#160;</td>
+          <td class="paramtype">map&lt; string, vector&lt; string &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>classes</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>class_cnt</em>&#160;</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>token</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -125,24 +137,82 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Deletes a group of duplicates except one chosen by the user </p>
+<p>Deletes a group of duplicates except one chosen by the user. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">class_cnt</td><td>Keeps count of how many duplicates groups there are. </td></tr>
+    <tr><td class="paramname">token</td><td>HTML/CMD mode token. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="a13170d15472392870c9a9863360a5423"></a>
+<a class="anchor" id="afb94642309072d3927dac399afd744c2"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UserInterface::deleteDuplicates </td>
+          <td>(</td>
+          <td class="paramtype">map&lt; string, vector&lt; string &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>classes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>token</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Deletes a group of duplicates except one chosen by the user. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">class_cnt</td><td>Keeps count of how many duplicates groups there are. </td></tr>
+    <tr><td class="paramname">token</td><td>HTML/CMD mode token. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a62000ec96ec57056f5b6e6a6fcbfc719"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UserInterface::deleteFile </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>fname</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Deletes a single file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fname</td><td>A string of a directory to a file. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a8ed960186e9c41fd8367b3d71da546f8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void UserInterface::output </td>
           <td>(</td>
-          <td class="paramtype">map&lt; string, vector&lt; string &gt; &gt;&#160;</td>
+          <td class="paramtype">map&lt; string, vector&lt; string &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>classes</em></td><td>)</td>
           <td></td>
         </tr>
@@ -151,39 +221,102 @@ Public Member Functions</h2></td></tr>
 <p>Outputs the groups of duplicates in the command prompt. Shows the size consumed by duplicate files. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">classes</td><td>A map of strings and vectors of strings grouping files(directories) by their hash value </td></tr>
+    <tr><td class="paramname">classes</td><td>A map of strings and vectors of strings grouping files(directories) by their hash value. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a class="anchor" id="a4d719c7a1ad8c8cf653c688ab50cc9c3"></a>
+<a class="anchor" id="a8ed960186e9c41fd8367b3d71da546f8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UserInterface::output </td>
+          <td>(</td>
+          <td class="paramtype">map&lt; string, vector&lt; string &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>classes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Outputs the groups of duplicates in the command prompt. Shows the size consumed by duplicate files. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">classes</td><td>A map of strings and vectors of strings grouping files(directories) by their hash value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ad27a5035bcd5d32eaf2ca870e8ab10a7"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void UserInterface::output_h </td>
           <td>(</td>
-          <td class="paramtype">map&lt; string, vector&lt; string &gt; &gt;&#160;</td>
+          <td class="paramtype">map&lt; string, vector&lt; string &gt; &gt; &amp;&#160;</td>
           <td class="paramname"><em>classes</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>HTML version of <a class="el" href="class_user_interface.html#a13170d15472392870c9a9863360a5423">output()</a> </p>
-<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_user_interface.html#a13170d15472392870c9a9863360a5423">output()</a> </dd></dl>
+<p>HTML version of <a class="el" href="class_user_interface.html#a8ed960186e9c41fd8367b3d71da546f8">output()</a>. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_user_interface.html#a8ed960186e9c41fd8367b3d71da546f8">output()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aec96db5035550670c88f077d36b7ef24"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UserInterface::qtOutput </td>
+          <td>(</td>
+          <td class="paramtype">map&lt; string, vector&lt; string &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>classes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QString *&#160;</td>
+          <td class="paramname"><em>output</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QTableWidget *&#160;</td>
+          <td class="paramname"><em>table</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Qt GUI version of <a class="el" href="class_user_interface.html#a8ed960186e9c41fd8367b3d71da546f8">output()</a>. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_user_interface.html#a8ed960186e9c41fd8367b3d71da546f8">output()</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">table</td><td>A QTableWidget outputing the results from the scan into a table with a checkbox for deletion select. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>E:/duplicates/Source/SD2013DScanner/<a class="el" href="_user_interface_8h_source.html">UserInterface.h</a></li>
-<li>E:/duplicates/Source/SD2013DScanner/UserInterface.cpp</li>
+<li>E:/duplicates/Source/SD2013DScanner/DoppleScanner3/<a class="el" href="_dopple_scanner3_2_user_interface_8h_source.html">UserInterface.h</a></li>
+<li>E:/duplicates/Source/SD2013DScanner/DoppleScanner3/UserInterface.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 14 2014 19:02:49 for DoppleScanner by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 17 2014 08:00:18 for DoppleScanner by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -7,9 +7,9 @@
 
 var indexSectionsWithContent =
 {
-  0: "dfgiostu",
-  1: "stu",
-  2: "dfgio"
+  0: "dfgimoqstu",
+  1: "mqstu",
+  2: "dfgioq"
 };
 
 var indexSectionNames =

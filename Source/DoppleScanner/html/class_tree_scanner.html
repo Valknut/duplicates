@@ -61,6 +61,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul class="tablist">
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
@@ -105,8 +106,47 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="separator:a042ddf3be0d3960dbca0362fb52cd1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add67141b6bca7a3abc72ea305ac915bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_scanner.html#add67141b6bca7a3abc72ea305ac915bd">GroupIntoClasses</a> (const string &amp;base_directory, map&lt; string, vector&lt; string &gt; &gt; &amp;classes)</td></tr>
 <tr class="separator:add67141b6bca7a3abc72ea305ac915bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae00aada3fc132df9c016b929cf28c9bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_scanner.html#ae00aada3fc132df9c016b929cf28c9bc">IsFile</a> (const string &amp;path)</td></tr>
+<tr class="separator:ae00aada3fc132df9c016b929cf28c9bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7b2ea3b785abfeb7947fdd74ce64953"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7b2ea3b785abfeb7947fdd74ce64953"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_scanner.html#aa7b2ea3b785abfeb7947fdd74ce64953">IsDirectory</a> (const string &amp;path)</td></tr>
+<tr class="memdesc:aa7b2ea3b785abfeb7947fdd74ce64953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the given absolute or relative path is a valid directory. <br/></td></tr>
+<tr class="separator:aa7b2ea3b785abfeb7947fdd74ce64953"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9f6d985cb42d2cd7505b1213edd04b8"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_scanner.html#af9f6d985cb42d2cd7505b1213edd04b8">FileSizeInBytes</a> (const string &amp;filename)</td></tr>
+<tr class="separator:af9f6d985cb42d2cd7505b1213edd04b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa67c5724102c0634ba151cbed2d897e6"><td class="memItemLeft" align="right" valign="top">vector&lt; string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_scanner.html#aa67c5724102c0634ba151cbed2d897e6">GetFilesAndDirectoriesFlat</a> (const string &amp;directory)</td></tr>
+<tr class="memdesc:aa67c5724102c0634ba151cbed2d897e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">given directory specified by its absolute or relative path.  <a href="#aa67c5724102c0634ba151cbed2d897e6">More...</a><br/></td></tr>
+<tr class="separator:aa67c5724102c0634ba151cbed2d897e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a042ddf3be0d3960dbca0362fb52cd1cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_scanner.html#a042ddf3be0d3960dbca0362fb52cd1cd">GetFilesAndDirectoriesRecursive</a> (const string &amp;base_path, vector&lt; string &gt; &amp;files_and_directories)</td></tr>
+<tr class="separator:a042ddf3be0d3960dbca0362fb52cd1cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add67141b6bca7a3abc72ea305ac915bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tree_scanner.html#add67141b6bca7a3abc72ea305ac915bd">GroupIntoClasses</a> (const string &amp;base_directory, map&lt; string, vector&lt; string &gt; &gt; &amp;classes)</td></tr>
+<tr class="separator:add67141b6bca7a3abc72ea305ac915bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="af9f6d985cb42d2cd7505b1213edd04b8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t TreeScanner::FileSizeInBytes </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>A method that estimates the size of a file </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>A constant reference to a string of a filename </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of bytes the given file contains. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="af9f6d985cb42d2cd7505b1213edd04b8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -154,6 +194,67 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Returns the names of all files and directories directly or indirectly (recursively) contained in a given directory specified by it's absolute or relative path. The names are stored in the output parameter: files_and_directories and are included using an in-order traversal of the filesystem.. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="aa67c5724102c0634ba151cbed2d897e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;string&gt; TreeScanner::GetFilesAndDirectoriesFlat </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>directory</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>given directory specified by its absolute or relative path. </p>
+<p>Returns the names of all files and directories directly contained in a</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">directory</td><td>a string to the main directory. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns the names of all files and directories directly or indirectly (recursively) contained in a given directory specified by it's absolute or relative path. The names are stored in the output parameter: files_and_directories and are included using an in-order traversal of the filesystem.. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a042ddf3be0d3960dbca0362fb52cd1cd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TreeScanner::GetFilesAndDirectoriesRecursive </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>base_path</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>files_and_directories</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Recursive version of GetFilesAndDirectoriesFlat(...) </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_tree_scanner.html#a1ad8ab7b22690ae99f25e9b26ab31f6d" title="given directory specified by its absolute or relative path. ">GetFilesAndDirectoriesFlat()</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base_path</td><td>A constant reference to a string a base path </td></tr>
+    <tr><td class="paramname">files_and_directories</td><td>A reference to a vector of strings of filenames and the paths to them </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -219,6 +320,57 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
+<a class="anchor" id="add67141b6bca7a3abc72ea305ac915bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TreeScanner::GroupIntoClasses </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>base_directory</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">map&lt; string, vector&lt; string &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>classes</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Recursively traverses the files in a base directory and creates a map from hashes of file contents to a vector of filenames. This results in a grouping in which the names of all files with the same content are put into the same vector. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae00aada3fc132df9c016b929cf28c9bc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TreeScanner::IsFile </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Checks whether the given absolute or relative path is a valid file. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>A constant reference to a string of a path </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A whether the string is a path to a file </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="ae00aada3fc132df9c016b929cf28c9bc"></a>
 <div class="memitem">
 <div class="memproto">
@@ -244,13 +396,13 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>E:/duplicates/Source/SD2013DScanner/<a class="el" href="_tree_scanner_8h_source.html">TreeScanner.h</a></li>
-<li>E:/duplicates/Source/SD2013DScanner/TreeScanner.cpp</li>
+<li>E:/duplicates/Source/SD2013DScanner/DoppleScanner3/<a class="el" href="_dopple_scanner3_2_tree_scanner_8h_source.html">TreeScanner.h</a></li>
+<li>E:/duplicates/Source/SD2013DScanner/DoppleScanner3/TreeScanner.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 14 2014 19:02:49 for DoppleScanner by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Feb 17 2014 08:00:18 for DoppleScanner by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

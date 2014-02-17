@@ -8,56 +8,125 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{class_user_interface_a13170d15472392870c9a9863360a5423}{output} (map$<$ string, vector$<$ string $>$ $>$ classes)
+void \hyperlink{class_user_interface_a8ed960186e9c41fd8367b3d71da546f8}{output} (map$<$ string, vector$<$ string $>$ $>$ \&classes)
 \item 
-void \hyperlink{class_user_interface_a4d719c7a1ad8c8cf653c688ab50cc9c3}{output\-\_\-h} (map$<$ string, vector$<$ string $>$ $>$ classes)
+void \hyperlink{class_user_interface_ad27a5035bcd5d32eaf2ca870e8ab10a7}{output\-\_\-h} (map$<$ string, vector$<$ string $>$ $>$ \&classes)
 \item 
-void \hyperlink{class_user_interface_aa15d90714deb218022d3754bddd93852}{delete\-Duplicates} (map$<$ string, vector$<$ string $>$ $>$classes, size\-\_\-t class\-\_\-cnt)
+void \hyperlink{class_user_interface_a62000ec96ec57056f5b6e6a6fcbfc719}{delete\-File} (string fname)
+\item 
+void \hyperlink{class_user_interface_afb94642309072d3927dac399afd744c2}{delete\-Duplicates} (map$<$ string, vector$<$ string $>$ $>$ \&classes, char token)
+\item 
+void \hyperlink{class_user_interface_aec96db5035550670c88f077d36b7ef24}{qt\-Output} (map$<$ string, vector$<$ string $>$ $>$ \&classes, Q\-String $\ast$\hyperlink{class_user_interface_a8ed960186e9c41fd8367b3d71da546f8}{output}, Q\-Table\-Widget $\ast$table)
+\item 
+void \hyperlink{class_user_interface_a8ed960186e9c41fd8367b3d71da546f8}{output} (map$<$ string, vector$<$ string $>$ $>$ \&classes)
+\item 
+\hypertarget{class_user_interface_ad27a5035bcd5d32eaf2ca870e8ab10a7}{void {\bfseries output\-\_\-h} (map$<$ string, vector$<$ string $>$ $>$ \&classes)}\label{class_user_interface_ad27a5035bcd5d32eaf2ca870e8ab10a7}
+
+\item 
+void \hyperlink{class_user_interface_afb94642309072d3927dac399afd744c2}{delete\-Duplicates} (map$<$ string, vector$<$ string $>$ $>$ \&classes, char token)
 \end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Constructs the user interface and contains the different types ot output and input forms 
+Constructs the user interface and contains. the different types ot output and input forms. 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_user_interface_aa15d90714deb218022d3754bddd93852}{\index{User\-Interface@{User\-Interface}!delete\-Duplicates@{delete\-Duplicates}}
+\hypertarget{class_user_interface_afb94642309072d3927dac399afd744c2}{\index{User\-Interface@{User\-Interface}!delete\-Duplicates@{delete\-Duplicates}}
 \index{delete\-Duplicates@{delete\-Duplicates}!UserInterface@{User\-Interface}}
 \subsubsection[{delete\-Duplicates}]{\setlength{\rightskip}{0pt plus 5cm}void User\-Interface\-::delete\-Duplicates (
 \begin{DoxyParamCaption}
-\item[{map$<$ string, vector$<$ string $>$ $>$}]{classes, }
-\item[{size\-\_\-t}]{class\-\_\-cnt}
+\item[{map$<$ string, vector$<$ string $>$ $>$ \&}]{classes, }
+\item[{char}]{token}
 \end{DoxyParamCaption}
-)}}\label{class_user_interface_aa15d90714deb218022d3754bddd93852}
-Deletes a group of duplicates except one chosen by the user 
+)}}\label{class_user_interface_afb94642309072d3927dac399afd744c2}
+Deletes a group of duplicates except one chosen by the user. 
 \begin{DoxyParams}{Parameters}
 {\em class\-\_\-cnt} & Keeps count of how many duplicates groups there are. \\
 \hline
+{\em token} & H\-T\-M\-L/\-C\-M\-D mode token. \\
+\hline
 \end{DoxyParams}
-\hypertarget{class_user_interface_a13170d15472392870c9a9863360a5423}{\index{User\-Interface@{User\-Interface}!output@{output}}
+\hypertarget{class_user_interface_afb94642309072d3927dac399afd744c2}{\index{User\-Interface@{User\-Interface}!delete\-Duplicates@{delete\-Duplicates}}
+\index{delete\-Duplicates@{delete\-Duplicates}!UserInterface@{User\-Interface}}
+\subsubsection[{delete\-Duplicates}]{\setlength{\rightskip}{0pt plus 5cm}void User\-Interface\-::delete\-Duplicates (
+\begin{DoxyParamCaption}
+\item[{map$<$ string, vector$<$ string $>$ $>$ \&}]{classes, }
+\item[{char}]{token}
+\end{DoxyParamCaption}
+)}}\label{class_user_interface_afb94642309072d3927dac399afd744c2}
+Deletes a group of duplicates except one chosen by the user. 
+\begin{DoxyParams}{Parameters}
+{\em class\-\_\-cnt} & Keeps count of how many duplicates groups there are. \\
+\hline
+{\em token} & H\-T\-M\-L/\-C\-M\-D mode token. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_user_interface_a62000ec96ec57056f5b6e6a6fcbfc719}{\index{User\-Interface@{User\-Interface}!delete\-File@{delete\-File}}
+\index{delete\-File@{delete\-File}!UserInterface@{User\-Interface}}
+\subsubsection[{delete\-File}]{\setlength{\rightskip}{0pt plus 5cm}void User\-Interface\-::delete\-File (
+\begin{DoxyParamCaption}
+\item[{string}]{fname}
+\end{DoxyParamCaption}
+)}}\label{class_user_interface_a62000ec96ec57056f5b6e6a6fcbfc719}
+Deletes a single file. 
+\begin{DoxyParams}{Parameters}
+{\em fname} & A string of a directory to a file. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_user_interface_a8ed960186e9c41fd8367b3d71da546f8}{\index{User\-Interface@{User\-Interface}!output@{output}}
 \index{output@{output}!UserInterface@{User\-Interface}}
 \subsubsection[{output}]{\setlength{\rightskip}{0pt plus 5cm}void User\-Interface\-::output (
 \begin{DoxyParamCaption}
-\item[{map$<$ string, vector$<$ string $>$ $>$}]{classes}
+\item[{map$<$ string, vector$<$ string $>$ $>$ \&}]{classes}
 \end{DoxyParamCaption}
-)}}\label{class_user_interface_a13170d15472392870c9a9863360a5423}
+)}}\label{class_user_interface_a8ed960186e9c41fd8367b3d71da546f8}
 Outputs the groups of duplicates in the command prompt. Shows the size consumed by duplicate files. 
 \begin{DoxyParams}{Parameters}
-{\em classes} & A map of strings and vectors of strings grouping files(directories) by their hash value \\
+{\em classes} & A map of strings and vectors of strings grouping files(directories) by their hash value. \\
 \hline
 \end{DoxyParams}
-\hypertarget{class_user_interface_a4d719c7a1ad8c8cf653c688ab50cc9c3}{\index{User\-Interface@{User\-Interface}!output\-\_\-h@{output\-\_\-h}}
+\hypertarget{class_user_interface_a8ed960186e9c41fd8367b3d71da546f8}{\index{User\-Interface@{User\-Interface}!output@{output}}
+\index{output@{output}!UserInterface@{User\-Interface}}
+\subsubsection[{output}]{\setlength{\rightskip}{0pt plus 5cm}void User\-Interface\-::output (
+\begin{DoxyParamCaption}
+\item[{map$<$ string, vector$<$ string $>$ $>$ \&}]{classes}
+\end{DoxyParamCaption}
+)}}\label{class_user_interface_a8ed960186e9c41fd8367b3d71da546f8}
+Outputs the groups of duplicates in the command prompt. Shows the size consumed by duplicate files. 
+\begin{DoxyParams}{Parameters}
+{\em classes} & A map of strings and vectors of strings grouping files(directories) by their hash value. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_user_interface_ad27a5035bcd5d32eaf2ca870e8ab10a7}{\index{User\-Interface@{User\-Interface}!output\-\_\-h@{output\-\_\-h}}
 \index{output\-\_\-h@{output\-\_\-h}!UserInterface@{User\-Interface}}
 \subsubsection[{output\-\_\-h}]{\setlength{\rightskip}{0pt plus 5cm}void User\-Interface\-::output\-\_\-h (
 \begin{DoxyParamCaption}
-\item[{map$<$ string, vector$<$ string $>$ $>$}]{classes}
+\item[{map$<$ string, vector$<$ string $>$ $>$ \&}]{classes}
 \end{DoxyParamCaption}
-)}}\label{class_user_interface_a4d719c7a1ad8c8cf653c688ab50cc9c3}
-H\-T\-M\-L version of \hyperlink{class_user_interface_a13170d15472392870c9a9863360a5423}{output()} \begin{DoxySeeAlso}{See Also}
-\hyperlink{class_user_interface_a13170d15472392870c9a9863360a5423}{output()} 
+)}}\label{class_user_interface_ad27a5035bcd5d32eaf2ca870e8ab10a7}
+H\-T\-M\-L version of \hyperlink{class_user_interface_a8ed960186e9c41fd8367b3d71da546f8}{output()}. \begin{DoxySeeAlso}{See Also}
+\hyperlink{class_user_interface_a8ed960186e9c41fd8367b3d71da546f8}{output()} 
 \end{DoxySeeAlso}
+\hypertarget{class_user_interface_aec96db5035550670c88f077d36b7ef24}{\index{User\-Interface@{User\-Interface}!qt\-Output@{qt\-Output}}
+\index{qt\-Output@{qt\-Output}!UserInterface@{User\-Interface}}
+\subsubsection[{qt\-Output}]{\setlength{\rightskip}{0pt plus 5cm}void User\-Interface\-::qt\-Output (
+\begin{DoxyParamCaption}
+\item[{map$<$ string, vector$<$ string $>$ $>$ \&}]{classes, }
+\item[{Q\-String $\ast$}]{output, }
+\item[{Q\-Table\-Widget $\ast$}]{table}
+\end{DoxyParamCaption}
+)}}\label{class_user_interface_aec96db5035550670c88f077d36b7ef24}
+Qt G\-U\-I version of \hyperlink{class_user_interface_a8ed960186e9c41fd8367b3d71da546f8}{output()}. \begin{DoxySeeAlso}{See Also}
+\hyperlink{class_user_interface_a8ed960186e9c41fd8367b3d71da546f8}{output()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em table} & A Q\-Table\-Widget outputing the results from the scan into a table with a checkbox for deletion select. \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-E\-:/duplicates/\-Source/\-S\-D2013\-D\-Scanner/User\-Interface.\-h\item 
-E\-:/duplicates/\-Source/\-S\-D2013\-D\-Scanner/User\-Interface.\-cpp\end{DoxyCompactItemize}
+E\-:/duplicates/\-Source/\-S\-D2013\-D\-Scanner/\-Dopple\-Scanner3/User\-Interface.\-h\item 
+E\-:/duplicates/\-Source/\-S\-D2013\-D\-Scanner/\-Dopple\-Scanner3/User\-Interface.\-cpp\end{DoxyCompactItemize}

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['getfilesanddirectoriesflat',['GetFilesAndDirectoriesFlat',['../class_tree_scanner.html#a1ad8ab7b22690ae99f25e9b26ab31f6d',1,'TreeScanner']]],
-  ['getfilesanddirectoriesrecursive',['GetFilesAndDirectoriesRecursive',['../class_tree_scanner.html#a042ddf3be0d3960dbca0362fb52cd1cd',1,'TreeScanner']]],
-  ['groupintoclasses',['GroupIntoClasses',['../class_tree_scanner.html#add67141b6bca7a3abc72ea305ac915bd',1,'TreeScanner']]]
+  ['getfilesanddirectoriesflat',['GetFilesAndDirectoriesFlat',['../class_tree_scanner.html#a1ad8ab7b22690ae99f25e9b26ab31f6d',1,'TreeScanner::GetFilesAndDirectoriesFlat(const string &amp;directory)'],['../class_tree_scanner.html#aa67c5724102c0634ba151cbed2d897e6',1,'TreeScanner::GetFilesAndDirectoriesFlat(const string &amp;directory)']]],
+  ['getfilesanddirectoriesrecursive',['GetFilesAndDirectoriesRecursive',['../class_tree_scanner.html#a042ddf3be0d3960dbca0362fb52cd1cd',1,'TreeScanner::GetFilesAndDirectoriesRecursive(const string &amp;base_path, vector&lt; string &gt; &amp;files_and_directories)'],['../class_tree_scanner.html#a042ddf3be0d3960dbca0362fb52cd1cd',1,'TreeScanner::GetFilesAndDirectoriesRecursive(const string &amp;base_path, vector&lt; string &gt; &amp;files_and_directories)']]],
+  ['groupintoclasses',['GroupIntoClasses',['../class_tree_scanner.html#add67141b6bca7a3abc72ea305ac915bd',1,'TreeScanner::GroupIntoClasses(const string &amp;base_directory, map&lt; string, vector&lt; string &gt; &gt; &amp;classes)'],['../class_tree_scanner.html#add67141b6bca7a3abc72ea305ac915bd',1,'TreeScanner::GroupIntoClasses(const string &amp;base_directory, map&lt; string, vector&lt; string &gt; &gt; &amp;classes)']]]
 ];

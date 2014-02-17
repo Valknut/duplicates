@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['output',['output',['../class_user_interface.html#a13170d15472392870c9a9863360a5423',1,'UserInterface']]],
-  ['output_5fh',['output_h',['../class_user_interface.html#a4d719c7a1ad8c8cf653c688ab50cc9c3',1,'UserInterface']]]
+  ['output',['output',['../class_user_interface.html#a8ed960186e9c41fd8367b3d71da546f8',1,'UserInterface::output(map&lt; string, vector&lt; string &gt; &gt; &amp;classes)'],['../class_user_interface.html#a8ed960186e9c41fd8367b3d71da546f8',1,'UserInterface::output(map&lt; string, vector&lt; string &gt; &gt; &amp;classes)']]],
+  ['output_5fh',['output_h',['../class_user_interface.html#ad27a5035bcd5d32eaf2ca870e8ab10a7',1,'UserInterface']]]
 ];
